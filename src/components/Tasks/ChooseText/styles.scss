@@ -1,0 +1,38 @@
+@import "~/styles/colors.scss";
+
+.taskText {
+  padding: 20px 0 20px 0;
+  font-size: large;
+}
+
+.card {
+  height: 200px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: x-large;
+  margin-bottom: 20px;
+}
+
+.option {
+  max-width: 90vw;
+}
+
+.circles {
+  display: flex;
+  justify-content: center;
+}
+
+.circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  margin: 0 5px 0 5px;
+  background-color: $neutral-3;
+
+  &.isActiveCircle {
+    background-color: $neutral-1;
+  }
+}
