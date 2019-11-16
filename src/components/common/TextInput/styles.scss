@@ -1,0 +1,29 @@
+@import "~/styles/colors.scss";
+
+.input {
+  display: block;
+  margin: 0;
+  padding: 1px 12px 0 12px;
+  height: 30px;
+  box-sizing: border-box;
+  font-family: "PT Sans", sans-serif;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid $neutral-3;
+}
+
+.input-primary {
+  border: 1px solid $primary-4;
+}
+
+.input-success {
+  border: 1px solid $success-3;
+}
+
+.input-danger {
+  border: 1px solid $danger-4;
+}
+
+.input-warning {
+  border: 1px solid $warning-3;
+}

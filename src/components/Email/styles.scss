@@ -1,0 +1,38 @@
+@import "~/styles/colors.scss";
+
+.email {
+  font-family: "Courier New", Courier, monospace;
+  padding: 20px;
+  border: 1px solid $neutral-0;
+  -webkit-box-shadow: 10px 10px 0px 0px $neutral-0;
+  -moz-box-shadow: 10px 10px 0px 0px $neutral-0;
+  box-shadow: 10px 10px 0px 0px $neutral-0;
+  transition-duration: 1000ms;
+}
+
+.row {
+  font-size: 1.2rem;
+  padding-bottom: 10px;
+}
+
+.label {
+  color: $neutral-1;
+}
+
+.spinClockwise {
+  transform: rotate(720deg);
+}
+
+.spinAntiClockwise {
+  transform: rotate(-720deg);
+}
+
+.actions {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0 20px 20px 20px;
+  display: flex;
+  justify-content: space-between;
+}

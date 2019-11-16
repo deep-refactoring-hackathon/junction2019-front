@@ -1,0 +1,75 @@
+@import "~/styles/colors.scss";
+
+.button {
+  background-color: $neutral-3;
+  border: none;
+  color: $neutral-6;
+  padding-left: 12px;
+  padding-right: 12px;
+  height: 30px;
+  border-radius: 5px;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-right: 6px;
+
+  &:active {
+    background-color: $neutral-6;
+    color: $neutral-3;
+  }
+
+  &:disabled {
+    cursor: default;
+    background-color: $neutral-4;
+  }
+}
+
+.button-primary {
+  background-color: $primary-3;
+  color: $primary-6;
+  &:active {
+    background-color: $primary-6;
+    color: $primary-3;
+  }
+  &:disabled {
+    background-color: $primary-4;
+  }
+}
+
+.button-success {
+  background-color: $success-3;
+  color: $success-6;
+  &:active {
+    background-color: $success-6;
+    color: $success-3;
+  }
+  &:disabled {
+    background-color: $success-4;
+  }
+}
+
+.button-warning {
+  background-color: $warning-3;
+  color: $warning-6;
+  &:active {
+    background-color: $warning-6;
+    color: $warning-3;
+  }
+  &:disabled {
+    background-color: $warning-4;
+  }
+}
+
+.button-danger {
+  background-color: $danger-3;
+  color: $danger-6;
+  &:active {
+    background-color: $danger-6;
+    color: $danger-3;
+  }
+  &:disabled {
+    background-color: $danger-4;
+  }
+}
