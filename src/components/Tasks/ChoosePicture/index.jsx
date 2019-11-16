@@ -30,7 +30,7 @@ export default ({ task }) => {
     <div>
       <div className={css.taskText}>{text}</div>
       <div>
-        <img className={css.option} src={options[selected]} />
+        <img className={css.option} src={options[selected].text} />
       </div>
       <div className={css.circles}>
         {options.map((_, index) => (

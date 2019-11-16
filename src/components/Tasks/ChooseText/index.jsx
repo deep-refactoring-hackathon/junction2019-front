@@ -32,7 +32,7 @@ export default ({ task }) => {
     <div>
       <div className={css.taskText}>{text}</div>
       <div>
-        <Card text={options[selected]} />
+        <Card text={options[selected].text} />
       </div>
       <div className={css.circles}>
         {options.map((_, index) => (
