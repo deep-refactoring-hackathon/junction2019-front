@@ -2,15 +2,61 @@
 
 .topBar {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  height: 64px;
   margin-bottom: 20px;
-  
+  background-color: #ffe60a;
+  border-top-left-radius: 37px;
+  border-top-right-radius: 37px;
+  box-shadow: 0px 4px 4px #00000040;
+
   img {
+    position: relative;
+    right: 20px;
+    top: 4px;
     max-width: 50px;
     border-radius: 50px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
+}
+
+.container {
+  padding: 50px 50px 0 50px;
+}
+
+.from {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+
+  color: #6010b0;
+}
+
+.status {
+  font-family: Roboto;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 18px;
+  text-align: center;
+
+  color: #3b3d43;
+}
+.name {
+  width: 80%;
+  text-align: center;
+  padding-top: 9px;
+}
+
+.avatar {
+  width: 20%;
+}
+
+.messages {
+  padding-top: 10px;
+  padding-left: 7px;
 }
 
 .message {
@@ -19,4 +65,51 @@
   padding: 10px;
   border-radius: 5px;
   margin-bottom: 10px;
+
+  background: #fbefd0;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  font-size: small;
+}
+
+.window {
+  border-radius: 40px;
+  border: 3px solid #47038c;
+  background-color: white;
+  position: relative;
+  height: 80vh;
+}
+
+.input {
+  display: flex;
+  justify-content: space-between;
+  height: 51px;
+  background: #0b1e504d;
+  border-radius: 0px 0px 30px 30px;
+  padding-top: 13px;
+  padding-left: 17px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.field {
+  width: 60%;
+  height: 28px;
+
+  background: #cfd1d7;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
+.submit {
+  width: 40px;
+  height: 40px;
+  background-image: url("https://res.cloudinary.com/dzpmqwz0e/image/upload/v1573942627/1.png");
+  background-repeat: no-repeat;
+  background-position: 0% 0%;
+  background-size: 100% 100%;
+  margin-left: 9px;
+  margin-right: 20px;
 }

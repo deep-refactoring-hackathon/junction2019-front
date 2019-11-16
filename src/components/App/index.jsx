@@ -21,7 +21,9 @@ const App = () => {
   }, [taskIndex])
 
   const onAnswer = answer => () => {
-    setTaskIndex(taskIndex + 1)
+    if (task.next_task_id) {
+      setTaskIndex(task.next_task_id)
+    }
   }
 
   if (task === null) {
