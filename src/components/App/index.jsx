@@ -21,6 +21,26 @@ const tasks = [
   {
     type: "choose-text",
     payload: {
+      text: "Choose website to buy tickets",
+      options: [
+        "http://but-ticket.pw",
+        "https://tickets.com",
+        "http://bam.free-tickets.tk",
+        "https://www.ticketmaster.com",
+      ],
+    },
+    answer: 0,
+  },
+  {
+    type: "chat",
+    payload: {
+      messages: ["Great!", "Damn, it requires registration."],
+      from: "Jane",
+    },
+  },
+  {
+    type: "choose-text",
+    payload: {
       text: "Choose password for the ticket website",
       options: [
         "chemicals-manned-recollect",
@@ -30,6 +50,26 @@ const tasks = [
       ],
     },
     answer: 0,
+  },
+  {
+    type: "chat",
+    payload: {
+      messages: ["YAY! We have tickets!", "Have you posted it in instagram?"],
+    },
+    from: "Jane",
+  },
+  {
+    type: "choose-picture",
+    payload: {
+      text: "What picture you want to post in instagram?",
+      options: [
+        "https://res.cloudinary.com/dzpmqwz0e/image/upload/v1573908665/ticket1.png",
+        "https://res.cloudinary.com/dzpmqwz0e/image/upload/v1573908665/ticket2.png",
+        "https://res.cloudinary.com/dzpmqwz0e/image/upload/v1573908665/ticket3.png",
+        "https://res.cloudinary.com/dzpmqwz0e/image/upload/v1573908665/ticket4.png",
+      ],
+    },
+    answer: [1, 2, 3],
   },
   {
     type: "chat",
@@ -55,41 +95,50 @@ const tasks = [
     answer: 0,
   },
   {
+    type: "chat",
+    payload: {
+      messages: [
+        "Please ignore previous messages.",
+        "It wasn't me",
+        "Someone hacked my account.",
+        "How do they know my password?",
+      ],
+    },
+    from: "Jane",
+  },
+  {
+    type: "chat",
+    payload: {
+      messages: [
+        "New music video released!!! ",
+        "OMG!!!",
+        "Have you seen it?",
+        "http://download-videos.fo/id?jurm=1fasda",
+        "It's so awesome!",
+      ],
+    },
+    from: "Jane",
+  },
+  {
     type: "single-image",
     payload: {
-      text: "",
+      text: "Will you download video from this website?",
       imageUrl:
         "https://res.cloudinary.com/dzpmqwz0e/image/upload/v1573908665/ticket2.png",
     },
     answer: false,
   },
   {
-    type: "choose-text",
+    type: "chat",
     payload: {
-      text: "Choose website to buy tickets",
-      options: [
-        "http://but-ticket.pw",
-        "https://tickets.com",
-        "http://bam.free-tickets.tk",
-        "https://www.ticketmaster.com",
-      ],
+      messages: ["CHARITY PLASEHOLDER"],
     },
-    answer: 0,
-  },
-  {
-    type: "email",
-    payload: {
-      from: "foo@bar.com",
-      subject: "Subject",
-      text:
-        "<h2>Donate money to Africa</h2><p>I am Dr. Bakare Tunde, the cousin of Nigerian Astronaut, Air Force Major Abacha Tunde. He was the first African in space when he made a secret flight to the Salyut 6 space station in 1979. He was on a later Soviet spaceflight, Soyuz T-16Z to the secret Soviet military space station Salyut 8T in 1989. He was stranded there in 1990 when the Soviet Union was dissolved. His other Soviet crew members returned to earth on the Soyuz T-16Z, but his place was taken up by return cargo. There have been occasional Progrez supply flights to keep him going since that time. He is in good humor, but wants to come home.</p>",
-    },
-    answer: false,
+    from: "Jane",
   },
   {
     type: "choose-picture",
     payload: {
-      text: "What picture you want to post in instagram?",
+      text: "CHARITY PLASEHOLDER",
       options: [
         "https://res.cloudinary.com/dzpmqwz0e/image/upload/v1573908665/ticket1.png",
         "https://res.cloudinary.com/dzpmqwz0e/image/upload/v1573908665/ticket2.png",
@@ -100,18 +149,12 @@ const tasks = [
     answer: [1, 2, 3],
   },
   {
-    type: "choose-picture",
-    text: "What picture you want to post in instagram?",
+    type: "chat",
     payload: {
-      options: [
-        "https://res.cloudinary.com/dzpmqwz0e/image/upload/v1573890639/Action_For_Asperger_s_-_Home_2019-11-16_09-49-56.png",
-        "https://res.cloudinary.com/dzpmqwz0e/image/upload/v1573892247/%D0%A1%D0%B1%D0%BE%D1%80_%D1%81%D1%80%D0%B5%D0%B4%D1%81%D1%82%D0%B2_%D0%BD%D0%B0_%D0%BB%D0%B5%D1%87%D0%B5%D0%BD%D0%B8%D0%B5_%D0%BC%D0%BE%D0%BB%D0%BE%D0%B4%D1%8B%D1%85_%D0%B2%D0%B7%D1%80%D0%BE%D1%81%D0%BB%D1%8B%D1%85_%D0%A4%D0%BE%D0%BD%D0%B4_%D0%9F%D0%BE%D0%B4%D0%B0%D1%80%D0%B8_%D0%B6%D0%B8%D0%B7%D0%BD%D1%8C_2019-11-16_10-16-49.png",
-        "https://res.cloudinary.com/dzpmqwz0e/image/upload/v1573892786/%D0%A1%D0%B1%D0%BE%D1%80_%D0%B4%D0%B5%D0%BD%D0%B5%D0%B3_%D0%BD%D0%B0_%D0%BB%D0%B5%D1%87%D0%B5%D0%BD%D0%B8%D0%B5_%D0%B4%D0%B5%D1%82%D0%B5%D0%B8%CC%86_%D0%B2_%D0%91%D0%B5%D0%BB%D0%B0%D1%80%D1%83%D1%81%D0%B8_%D1%84%D0%BE%D0%BD%D0%B4_%D1%81%D0%B1%D0%BE%D1%80%D0%B0_%D0%B4%D0%B5%D0%BD%D0%B5%D0%B3_%D0%BD%D0%B0_%D0%BB%D0%B5%D1%87%D0%B5%D0%BD%D0%B8%D0%B5_%D0%B4%D0%B5%D1%82%D0%B5%D0%B8%CC%86_-_%D0%AE%D0%BD%D0%B8%D0%A5%D0%B5%D0%BB%D0%BF_2019-11-16_10-26-03.png",
-        "https://res.cloudinary.com/dzpmqwz0e/image/upload/v1573892904/Testicular_Cancer_Foundation_TesticularCancer.org_2019-11-16_10-27-55.png",
-      ],
+      messages: ["END MESSAGE"],
     },
-    answer: 2,
-  },
+    from: "Jane",
+  }
 ]
 
 const App = () => {
