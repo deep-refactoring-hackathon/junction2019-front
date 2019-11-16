@@ -10,10 +10,6 @@ const getEmailClassName = spin =>
   })
 
 export default () => {
-  const [spin, setSpin] = useState(false)
-
-  const updateRotated = direction => () => setSpin(direction)
-
   return (
     <div className={css.task}>
       <div className={css.email}>
