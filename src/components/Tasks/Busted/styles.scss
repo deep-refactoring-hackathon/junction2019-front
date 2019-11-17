@@ -1,0 +1,13 @@
+.robert {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #061f3e;
+  z-index: 9999;
+  text-align: center;
+  img {
+    max-width: 100%;
+  }
+}

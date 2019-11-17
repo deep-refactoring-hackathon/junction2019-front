@@ -4,6 +4,8 @@ import { connect } from "react-redux"
 import { postMessage, addMessage } from "./actions"
 
 import css from "./styles.scss"
+import DirectedBy from "../DirectedBy"
+import Busted from "../Busted"
 
 const getRowClass = kind => `${css.row} ${kind === "in" ? css.in : css.out}`
 
@@ -13,15 +15,44 @@ const Message = ({ text, kind }) => (
   </div>
 )
 
-const FishingChat = ({ messages, postMessage, addMessage, task }) => {
+const FishingChat = ({
+  isWasted,
+  isBusted,
+  messages,
+  postMessage,
+  addMessage,
+  task,
+}) => {
+  const [showWasted, setShowWasted] = useState(false)
+  const [showBusted, setShowBusted] = useState(false)
   useEffect(() => {
     addMessage({ type: "in", text: task.payload.text })
   }, [])
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (isWasted) {
+        setShowWasted(true)
+      }
+    }, 3000)
+  }, [isWasted])
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (isBusted) {
+        setShowBusted(true)
+      }
+    }, 3000)
+  }, [isBusted])
 
   const [inputMessage, setInputMessage] = useState("")
 
   const onSubmit = e => {
     e.preventDefault()
+    if (inputMessage.length === 0) {
+      return
+    }
+
     addMessage({ type: "out", text: inputMessage })
     postMessage(inputMessage)
     setInputMessage("")
@@ -29,6 +60,8 @@ const FishingChat = ({ messages, postMessage, addMessage, task }) => {
 
   return (
     <div className={css.container}>
+      {showWasted && <DirectedBy />}
+      {showBusted && <Busted />}
       <div className={css.window}>
         <div className={css.topBar}>
           <div className={css.name}>
@@ -61,7 +94,9 @@ const FishingChat = ({ messages, postMessage, addMessage, task }) => {
 }
 
 const mapStateToProps = ({ messages }) => ({
-  messages,
+  messages: messages.messages,
+  isWasted: messages.isWasted,
+  isBusted: messages.isBusted,
 })
 
 const mapDispatchToProps = {
