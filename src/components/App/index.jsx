@@ -36,7 +36,7 @@ const getText = (task, answer) => {
 }
 
 const App = () => {
-  const [taskIndex, setTaskIndex] = useState(1)
+  const [taskIndex, setTaskIndex] = useState(12)
   const [task, setTask] = useState(null)
   const [Modal, setModal] = useState(null)
   const [answer, setAnswer] = useState(null)

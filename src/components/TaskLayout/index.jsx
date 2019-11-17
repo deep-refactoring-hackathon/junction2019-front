@@ -7,6 +7,7 @@ import ChooseText from "../Tasks/ChooseText"
 import Chat from "../Tasks/Chat"
 import Next from "../Controls/Next"
 import Image from "../Tasks/Image"
+import FishingChat from "../Tasks/FishingChat"
 
 import css from "./styles.scss"
 
@@ -29,6 +30,10 @@ const getTaskComponent = task => {
 
   if (task.type === "single-image") {
     return Image
+  }
+
+  if (task.type === "fishing-chat") {
+    return FishingChat
   }
 }
 
