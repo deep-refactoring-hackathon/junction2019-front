@@ -8,6 +8,7 @@ import Chat from "../Tasks/Chat"
 import Next from "../Controls/Next"
 import Image from "../Tasks/Image"
 import FishingChat from "../Tasks/FishingChat"
+import DuckChat from "../Tasks/DuckChat"
 import Won from "../Tasks/Won"
 
 import css from "./styles.scss"
@@ -34,7 +35,7 @@ const getTaskComponent = task => {
   }
 
   if (task.type === "fishing-chat") {
-    return FishingChat
+    return DuckChat
   }
   if (task.type === "bonus") {
     return Won
