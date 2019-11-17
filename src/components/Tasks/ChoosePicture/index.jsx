@@ -1,10 +1,13 @@
 import React, { useState } from "react"
 
+import DuckChat from "../DuckChat"
+
 import css from "./styles.scss"
 
 const Card = ({ url }) => <img className={css.card} src={url} />
 
 export default ({ task, onAnswer }) => {
+  const [DuckHelp, setDuckHelp] = useState(false)
   const [selected, setSelected] = useState(0)
 
   const nextSelected = () => {
@@ -23,10 +26,11 @@ export default ({ task, onAnswer }) => {
   return (
     <>
       <div className={css.frame}>
-        {/* <div className={css.helpBar}>
-          <div className={css.duck}></div>
-          <div className={css.help}></div>
-        </div> */}
+        {DuckHelp && <DuckChat onBack={() => setDuckHelp(false)} />}
+        <div className={css.helpBar}>
+          <div className={css.duck} onClick={() => setDuckHelp(true)}></div>
+          {/* <div className={css.help}></div> */}
+        </div>
 
         <div className={css.window}>
           <div className={css.message}>{task.payload.text}</div>

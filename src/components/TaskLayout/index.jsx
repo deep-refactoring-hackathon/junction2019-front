@@ -35,7 +35,7 @@ const getTaskComponent = task => {
   }
 
   if (task.type === "fishing-chat") {
-    return DuckChat
+    return FishingChat
   }
   if (task.type === "bonus") {
     return Won
