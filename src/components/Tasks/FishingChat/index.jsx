@@ -1,36 +1,29 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
+import { connect } from "react-redux"
+
+import { postMessage, addMessage } from "./actions"
 
 import css from "./styles.scss"
 
-const getMessageClass = kind =>
-  `${css.message} ${kind === "in" ? css.in : css.out}`
+const getRowClass = kind => `${css.row} ${kind === "in" ? css.in : css.out}`
 
 const Message = ({ text, kind }) => (
-  <div className={css.row}>
-    <div className={getMessageClass(kind)}>{text}</div>
+  <div className={getRowClass(kind)}>
+    <div className={css.message}>{text}</div>
   </div>
 )
 
-export default ({ task }) => {
-  const [messages, setMessages] = useState([
-    { type: "in", text: task.payload.text },
-  ])
+const FishingChat = ({ messages, postMessage, addMessage, task }) => {
+  useEffect(() => {
+    addMessage({ type: "in", text: task.payload.text })
+  }, [])
+
   const [inputMessage, setInputMessage] = useState("")
-  const updateMessages = text =>
-    setMessages([...messages, { type: "in", text }])
-    
+
   const onSubmit = e => {
     e.preventDefault()
-    setMessages([...messages, { type: "out", text: inputMessage }])
-    fetch("https://peace-duck-awareness.herokuapp.com/api/v1/fishing_chat", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ message: inputMessage }),
-    })
-      .then(r => r.json())
-      .then(data => updateMessages(data.text))
+    addMessage({ type: "out", text: inputMessage })
+    postMessage(inputMessage)
     setInputMessage("")
   }
 
@@ -51,19 +44,29 @@ export default ({ task }) => {
             <Message kind={message.type} text={message.text} key={index} />
           ))}
         </div>
-        <div className={css.input}>
-          <form onSubmit={onSubmit}>
-            <div className={css.field}>
-              <input
-                type="text"
-                value={inputMessage}
-                onChange={e => setInputMessage(e.target.value)}
-              />
-            </div>
-            <button className={css.submit} />
-          </form>
-        </div>
+        <form onSubmit={onSubmit}>
+          <div className={css.input}>
+            <input
+              type="text"
+              value={inputMessage}
+              onChange={e => setInputMessage(e.target.value)}
+              className={css.field}
+            />
+            <div className={css.submit} />
+          </div>
+        </form>
       </div>
     </div>
   )
 }
+
+const mapStateToProps = ({ messages }) => ({
+  messages,
+})
+
+const mapDispatchToProps = {
+  postMessage,
+  addMessage,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(FishingChat)

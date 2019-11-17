@@ -4,7 +4,7 @@ const API_REGEX = /^API_(?:(?!_SUCCESS|_FAILURE|_PENDING).)+$/
 
 const notApiAction = type => !API_REGEX.test(type)
 
-const host = "http://localhost:3000"
+const host = "https://peace-duck-awareness.herokuapp.com"
 
 const onSuccess = (dispatch, type) => response => {
   dispatch({
@@ -14,6 +14,7 @@ const onSuccess = (dispatch, type) => response => {
 }
 
 const onError = (dispatch, type) => error => {
+  console.log(error)
   return dispatch({
     type: `${type}_FAILURE`,
     payload: error.response.data,
@@ -21,6 +22,7 @@ const onError = (dispatch, type) => error => {
 }
 
 export default ({ dispatch }) => next => action => {
+  console.log(action)
   next(action)
 
   const { type, payload } = action
