@@ -52,7 +52,7 @@ const FishingChat = ({ messages, postMessage, addMessage, task }) => {
               onChange={e => setInputMessage(e.target.value)}
               className={css.field}
             />
-            <div className={css.submit} />
+            <div className={css.submit} onClick={onSubmit} />
           </div>
         </form>
       </div>
