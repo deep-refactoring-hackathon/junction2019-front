@@ -39,7 +39,7 @@ const getTaskControls = task => {
   }
 
   if (task.type === "choose-text") {
-    return ChooseOne
+    return null
   }
 
   if (task.type === "choose-picture") {
@@ -62,9 +62,9 @@ export default ({ task, onAnswer }) => {
   return (
     <div>
       <div className={css.task}>
-        <Task task={task} />
+        <Task task={task} onAnswer={onAnswer} />
       </div>
-      <Controls onAnswer={onAnswer} />
+      {Controls && <Controls onAnswer={onAnswer} />}
     </div>
   )
 }

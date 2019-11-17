@@ -1,51 +1,22 @@
-import React, { useState } from "react"
-import classnames from "classnames"
-
-import Button from "~/components/common/Button"
+import React from "react"
 
 import css from "./styles.scss"
 
-const getCircleClassname = isActive =>
-  classnames(css.circle, { [css.isActiveCircle]: isActive })
-
-const Card = ({ text }) => <div className={css.card}>{text}</div>
-
-export default ({ task }) => {
-  const [selected, setSelected] = useState(0)
-
-  const { options, text } = task.payload
-
-  const onClickNext = () => {
-    if (selected === options.length - 1) {
-      return setSelected(0)
-    }
-    return setSelected(selected + 1)
-  }
-  const onClickPrev = () => {
-    if (selected === 0) {
-      return setSelected(options.length - 1)
-    }
-    return setSelected(selected - 1)
-  }
-
+export default ({ task, onAnswer }) => {
   return (
-    <div>
-      <div className={css.taskText}>{text}</div>
-      <div>
-        <Card text={options[selected].text} />
+    <div className={css.frame}>
+      <div className={css.helpBar}>
+        <div className={css.duck}></div>
+        <div className={css.help}></div>
       </div>
-      <div className={css.circles}>
-        {options.map((_, index) => (
-          <div key={index} className={getCircleClassname(index === selected)} />
+
+      <div className={css.window}>
+        <div className={css.message}>{task.payload.text}</div>
+        {task.payload.options.map((option, index) => (
+          <div className={css.option} onClick={onAnswer(index)} key={index}>
+            {option.text}
+          </div>
         ))}
-      </div>
-      <div>
-        <Button kind="primary" onClick={onClickPrev}>
-          Prev
-        </Button>
-        <Button kind="primary" onClick={onClickNext}>
-          Next
-        </Button>
       </div>
     </div>
   )

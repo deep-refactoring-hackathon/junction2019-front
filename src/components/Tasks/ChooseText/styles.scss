@@ -1,38 +1,56 @@
 @import "~/styles/colors.scss";
 
-.taskText {
-  padding: 20px 0 20px 0;
-  font-size: large;
+.frame {
+  padding: 10px 30px 0 30px;
+}
+.window {
+  padding: 30px;
+  background: #fffafa;
+  box-shadow: inset 4px 4px 4px #00000040;
+  border-radius: 20px;
 }
 
-.card {
-  height: 200px;
-  background-color: white;
+.message {
+  padding-bottom: 30px;
+}
+
+.picture {
+  max-width: 100%;
+}
+
+.helpBar {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  font-size: x-large;
-  margin-bottom: 20px;
+  justify-content: flex-end;
+  padding-bottom: 5px;
+}
+
+.duck {
+  width: 45px;
+  height: 45px;
+  background-image: url("https://res.cloudinary.com/dzpmqwz0e/image/upload/c_scale,w_81/v1573951018/11a2d1874f8861f27b7cb8d61f360ddf.png");
+  background-repeat: no-repeat;
+  background-position: 0% 0%;
+  background-size: 100% 100%;
+  margin-right: 8px;
+}
+
+.help {
+  width: 45px;
+  height: 45px;
+  background-image: url("https://res.cloudinary.com/dzpmqwz0e/image/upload/c_scale,w_81/v1573950805/New_vopros.png");
+  background-repeat: no-repeat;
+  background-position: 0% 0%;
+  background-size: 100% 100%;
 }
 
 .option {
-  max-width: 90vw;
-}
-
-.circles {
-  display: flex;
-  justify-content: center;
-}
-
-.circle {
-  width: 10px;
-  height: 10px;
+  width: 100%;
+  padding: 20px 0 20px 0;
+  text-align: center;
+  margin: auto;
+  margin-bottom: 18px;
+  font-size: small;
+  background: #e9e1e1;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
-  margin: 0 5px 0 5px;
-  background-color: $neutral-3;
-
-  &.isActiveCircle {
-    background-color: $neutral-1;
-  }
 }

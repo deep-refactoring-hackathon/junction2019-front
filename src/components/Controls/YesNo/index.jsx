@@ -1,13 +1,10 @@
 import React from "react"
 
-import Button from "~/components/common/Button"
-
 import css from "./styles.scss"
 
 export default ({ onAnswer }) => (
-  <div>
-    <Button kind="danger" onClick={onAnswer(false)}>NO</Button>
-    <Button kind="warning">?</Button>
-    <Button kind="success" onClick={onAnswer(true)}>YES</Button>
+  <div className={css.bar}>
+    <div className={css.no} onClick={onAnswer(true)}></div>
+    <div className={css.yes} onClick={onAnswer(false)}></div>
   </div>
 )
