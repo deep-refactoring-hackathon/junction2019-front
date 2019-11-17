@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 
 import DuckChat from "../DuckChat"
+import Help from "../Help"
 
 import css from "./styles.scss"
 
@@ -8,6 +9,7 @@ const Card = ({ url }) => <img className={css.card} src={url} />
 
 export default ({ task, onAnswer }) => {
   const [DuckHelp, setDuckHelp] = useState(false)
+  const [help, setHelp] = useState(false)
   const [selected, setSelected] = useState(0)
 
   const nextSelected = () => {
@@ -27,9 +29,10 @@ export default ({ task, onAnswer }) => {
     <>
       <div className={css.frame}>
         {DuckHelp && <DuckChat onBack={() => setDuckHelp(false)} />}
+        {help && <Help text={task.help} onBack={() => setHelp(false)} />}
         <div className={css.helpBar}>
           <div className={css.duck} onClick={() => setDuckHelp(true)}></div>
-          {/* <div className={css.help}></div> */}
+          <div className={css.help} onClick={() => setHelp(true)}></div>
         </div>
 
         <div className={css.window}>

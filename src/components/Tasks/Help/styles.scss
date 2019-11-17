@@ -1,0 +1,27 @@
+.container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  z-index: 9999;
+}
+
+.controls {
+  padding-top: 20px;
+  text-align: center;
+}
+
+.back {
+  max-width: 40px;
+}
+
+.box {
+  width: 200px;
+  margin: auto;
+  margin-top: 50%;
+  border: 1px solid;
+  border-radius: 30px;
+  padding: 20px;
+}

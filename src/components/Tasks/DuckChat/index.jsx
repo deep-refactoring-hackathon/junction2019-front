@@ -32,7 +32,7 @@ const DuckChat = ({ messages, postMessage, addMessage, onBack }) => {
         <div className={css.window}>
           <div className={css.topBar}>
             <div className={css.name}>
-              <div className={css.from}>Peace Duck</div>
+              <div className={css.from}>Mr. Duck</div>
               <div className={css.status}>online</div>
             </div>
             <div className={css.avatar}>
