@@ -4,6 +4,7 @@
   padding: 10px 30px 0 30px;
 }
 .window {
+  text-align: center;
   padding: 30px;
   background: #fffafa;
   box-shadow: inset 4px 4px 4px #00000040;
@@ -15,7 +16,7 @@
 }
 
 .picture {
-  max-width: 100%;
+  max-height: 50vh;
 }
 
 .helpBar {
