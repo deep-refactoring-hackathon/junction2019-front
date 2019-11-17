@@ -1,7 +1,6 @@
 import React from "react"
 
 import EmailTask from "../Tasks/Email"
-import ChooseOne from "../Controls/ChooseOne"
 import YesNo from "../Controls/YesNo"
 import ChoosePicture from "../Tasks/ChoosePicture"
 import ChooseText from "../Tasks/ChooseText"
@@ -43,7 +42,7 @@ const getTaskControls = task => {
   }
 
   if (task.type === "choose-picture") {
-    return ChooseOne
+    return null
   }
 
   if (task.type === "single-image") {

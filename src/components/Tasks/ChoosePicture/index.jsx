@@ -1,50 +1,45 @@
 import React, { useState } from "react"
-import classnames from "classnames"
-
-import Button from "~/components/common/Button"
 
 import css from "./styles.scss"
 
-const getCircleClassname = isActive =>
-  classnames(css.circle, { [css.isActiveCircle]: isActive })
+const Card = ({ url }) => <img className={css.card} src={url} />
 
-export default ({ task }) => {
+export default ({ task, onAnswer }) => {
   const [selected, setSelected] = useState(0)
 
-  const { options, text } = task.payload
-
-  const onClickNext = () => {
-    if (selected === options.length - 1) {
+  const nextSelected = () => {
+    if (selected === task.payload.options.length - 1) {
       return setSelected(0)
     }
     return setSelected(selected + 1)
   }
-  const onClickPrev = () => {
+  const prevSelected = () => {
     if (selected === 0) {
-      return setSelected(options.length - 1)
+      return setSelected(task.payload.options.length - 1)
     }
     return setSelected(selected - 1)
   }
 
   return (
-    <div>
-      <div className={css.taskText}>{text}</div>
-      <div>
-        <img className={css.option} src={options[selected].text} />
+    <>
+      <div className={css.frame}>
+        <div className={css.helpBar}>
+          <div className={css.duck}></div>
+          <div className={css.help}></div>
+        </div>
+
+        <div className={css.window}>
+          <div className={css.message}>{task.payload.text}</div>
+          <div className={css.cardRow}>
+            <div className={css.left} onClick={prevSelected}></div>
+            <Card url={task.payload.options[selected].text} />
+            <div className={css.right} onClick={nextSelected}></div>
+          </div>
+        </div>
       </div>
-      <div className={css.circles}>
-        {options.map((_, index) => (
-          <div className={getCircleClassname(index === selected)} />
-        ))}
+      <div className={css.bar}>
+        <div className={css.ok} onClick={onAnswer(selected)}></div>
       </div>
-      <div>
-        <Button kind="primary" onClick={onClickPrev}>
-          Prev
-        </Button>
-        <Button kind="primary" onClick={onClickNext}>
-          Next
-        </Button>
-      </div>
-    </div>
+    </>
   )
 }
